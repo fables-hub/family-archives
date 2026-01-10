@@ -1,0 +1,546 @@
+<style>
+
+    @import url('https://fonts.cdnfonts.com/css/petter-jenne');
+    @import url('https://fonts.cdnfonts.com/css/plush-trial');
+
+    :root {
+      /* Base */
+      --bg: #0c0f14;        /* deep ink */
+      --panel: #161b22;     /* slate ledger */
+
+      /* Primary Accent */
+      --accent: #3e5c6f;    /* muted steel blue */
+
+      /* Text */
+      --text: #e2e6eb;      /* official parchment */
+      --muted: #9aa6b2;     /* registry gray */
+
+      /* Utility */
+      --seal: #6b8fa3;      /* Ministry stamp */
+      --border: #2a3440;    /* divider lines */
+    }
+
+
+    * {
+      box-sizing: border-box;
+    font-family: 'Plush-Trial', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .archive-header {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .archive-header p {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .accordion {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .family {
+      background: var(--panel);
+      border: 1px solid var(--accent);
+      margin-bottom: 1rem;
+    }
+
+summary {
+  display: grid;
+  grid-template-columns: 1fr auto min-content;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  cursor: pointer;
+}
+
+/* Remove flex styling if present */
+summary {
+  justify-content: unset;
+}
+
+/* Optional: hide default marker */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+    .family-name {
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .family[open] summary {
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .family-content {
+      padding: 1.5rem;
+    }
+
+    section {
+      margin-bottom: 1.5rem;
+    }
+
+    section h3 {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.3rem;
+        font-weight: normal;
+        font-size: 30px;
+        margin-top: 0px;
+    }
+
+    .secrets {
+      background: #12090c;
+      border: 1px dashed var(--accent);
+      padding: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    h1
+    {
+        font-family: 'Petter Jenne', sans-serif;
+        font-weight: normal;
+        font-size: 100px;
+        margin-bottom: 0px;
+    }
+
+    /* Base badge style */
+  .badge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+    width: 100px; /* or whatever fits your labels */
+    text-align: center;
+  }
+
+  /* Prominent badge */
+  .badge.prominent {
+    background: #368765; /* steel blue (fits Ministry palette) */
+    color: #e2e6eb;
+    border: 1px solid #000;
+  }
+
+  /* Obscure badge */
+  .badge.obscure {
+    background: #87314b; /* lighter registry stamp color */
+    color: #0a0b10;
+    border: 1px solid #000;
+  }
+
+  /* Optional: Slight spacing/flex adjustments for summary */
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wizarding Family Archives</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="archive-header">
+      <h1>Wizarding Family Archives</h1>
+    </header>
+
+    <main class="accordion">
+      <!-- FAMILY START -->
+      <details class="family">
+        <summary>
+          <span class="family-name">House Ashvale</span>
+          <span class="meta">Varies by branch · Est. 14th Century</span>
+          <span class="badge prominent">Prominent</span>
+        </summary>
+
+        <div class="family-content">
+          <section>
+            <h3>History</h3>
+            <p contenteditable="true">
+              The Ashvale family is renown in the wizarding world, but perhaps
+              not all for the right reasons. Their family is often said in
+              polite conversation to be "eclectic" and "eccentric." Most,
+              however, just call them "weird" and "strange." The family is known
+              to have traditions, customs, and a lifestyle that leans more
+              towards the eerie and macabre. Many speculate them to be in
+              cahoots with dark wizards, but in their lengthy history, there
+              have been no recorded dark witches or wizards within their ranks.
+            </p>
+          </section>
+
+          <section>
+            <h3>Lineage</h3>
+            <ul>
+              <li contenteditable="true">
+                Ancestral roots: Cross-regional Franco-Italian lineage
+              </li>
+              <li contenteditable="true">
+                Founder: Raoul De La Vallée des Frênes
+              </li>
+              <li contenteditable="true">Notable Ancestors: ——</li>
+              <li contenteditable="true">Current Head: Cypress Ashvale</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Political Alignment</h3>
+            <ul>
+              <li contenteditable="true">Wizengamot seat: No</li>
+              <li contenteditable="true">Registry stance: Anti-registration</li>
+              <li contenteditable="true">
+                Ministry reputation: Slightly negative
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Magical Specialties</h3>
+            <ul>
+              <li contenteditable="true">Potioneering</li>
+              <li contenteditable="true">Herbology</li>
+              <li contenteditable="true">Anatomy & medical wizardry</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Inter-Family Relations</h3>
+            <h4>Allies</h4>
+            <i>——</i>
+            <h4>Rivals</h4>
+            <i>——</i>
+            <h4>Blood Feuds</h4>
+            <i>——</i>
+          </section>
+        </div>
+      </details>
+      <!-- FAMILY END -->
+
+      <!-- FAMILY START -->
+      <details class="family">
+        <summary>
+          <span class="family-name">House Forte</span>
+          <span class="meta">Pureblood · Est. 14th Century</span>
+          <span class="badge prominent">Prominent</span>
+        </summary>
+
+        <div class="family-content">
+          <section>
+            <h3>History</h3>
+            <p contenteditable="true">
+              The Forte family has been a long-standing bloodline in the heart
+              of Italy; in the modern era, they are viewed as enforcers of order
+              and peace for their wizarding community, but their history lengthy
+              and drenched in blood. There was a time when the small wizarding
+              community shared the same village as muggles, back in the 1300's.
+              After an outbreak of witch scares that resulted in witches and
+              wizards being murdered, the remaining magical lines decided to
+              separate themselves from the nessuna magia— muggles, the English
+              called them.
+            </p>
+
+            <p contenteditable="true">
+              During the waning of the Renaissance and the swell of the
+              Inquisition, more witches and wizards began to disappear. Several
+              prominent families were called forward, the famiglia Forte being
+              one of them, to protect their wizarding village from invading
+              muggles who seemed to be getting past their defenses. As a result,
+              The L'epurazione Della non Magia took place, and as a result,
+              there was a slaughter of muggles within a fifty-mile radius of
+              their village, largely headed by the famiglia Forte. It was
+              explained in whispers by the muggles that it was a second wave of
+              the black plague... but of course, the wizarding world knew
+              better.
+            </p>
+
+            <p contenteditable="true">
+              In the modern era, the famiglia Forte's hands have been
+              significantly less bloody— but those in their community remember
+              their valiant fight to preserve their kind, and the family is held
+              in high regard as a result. Many members have prominent positions
+              within the Italian Ministry of Magic and as aurors. Some, however,
+              are simply enforcers of justice however they see fit— or wherever
+              the money takes them.
+            </p>
+          </section>
+
+          <section>
+            <h3>Lineage</h3>
+            <ul>
+              <li contenteditable="true">Ancestral roots: Roman/Italian</li>
+              <li contenteditable="true">Founder: Luciano Forte</li>
+              <li contenteditable="true">Notable Ancestors: ——</li>
+              <li contenteditable="true">Current Head: Amedeo Forte</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Political Alignment</h3>
+            <ul>
+              <li contenteditable="true">Wizengamot seat: No</li>
+              <li contenteditable="true">Registry stance: Neutral</li>
+              <li contenteditable="true">Ministry reputation: Slightly positive</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Magical Specialties</h3>
+            <ul>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Inter-Family Relations</h3>
+            <h4>Allies</h4>
+            <i>——</i>
+            <h4>Rivals</h4>
+            <i>——</i>
+            <h4>Blood Feuds</h4>
+            <i>——</i>
+          </section>
+        </div>
+      </details>
+      <!-- FAMILY END -->
+
+      <!-- FAMILY START -->
+      <details class="family">
+        <summary>
+          <span class="family-name">House Heraux</span>
+          <span class="meta">Pureblood · Est. 12th Century</span>
+          <span class="badge prominent">Prominent</span>
+        </summary>
+
+        <div class="family-content">
+          <section>
+            <h3>History</h3>
+            <p contenteditable="true">
+              The Heraux family; they were once among the epitome of greatness.
+              Once sharing a strong bloodline with the Juneau family, centuries
+              ago, the tree was split and the Heraux branch broken off when the
+              ancestor of the Heraux's bloodline, Dionysus, was found copulating
+              and reproducing with muggles. Considered a scandalous disgrace,
+              the Heraux bloodline was cut off from all fortune and connection.
+              They were left destitute, and to the purebloods of the world, they
+              were right where they belonged in the muck and mud.
+            </p>
+
+            <p contenteditable="true">
+              But the Heraux bloodline would not be so easily snuffed out. In
+              spite of living in abject and inherited poverty over the
+              generations, they not only survived, but they thrived. Until
+              recent years, the mere existence of the Heraux line was a black
+              eye to purebloods, and as late as the second Wizarding War,
+              members of their family were targeted and murdered in an attempt
+              to finally choke out the weed they'd become.
+            </p>
+
+            <p contenteditable="true">
+              Purebloods believed they were slaying a hydra when they tried to
+              cut down the Heraux family— but true to the nature of the hydra,
+              for every head they cut out, three have grown back. The Heraux
+              family, needless to say, is going absolutely nowhere.
+            </p>
+          </section>
+
+          <section>
+            <h3>Lineage</h3>
+            <ul>
+              <li contenteditable="true">Ancestral roots: Greek/Roman</li>
+              <li contenteditable="true">Founder: Dionysus Heraux</li>
+              <li contenteditable="true">Notable Ancestors: ——</li>
+              <li contenteditable="true">Current Head: Aeson Heraux</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Political Alignment</h3>
+            <ul>
+              <li contenteditable="true">Wizengamot seat: No</li>
+              <li contenteditable="true">Registry stance: Neutral</li>
+              <li contenteditable="true">Ministry reputation: Neutral</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Magical Specialties</h3>
+            <ul>
+              <li contenteditable="true">TBA</li>
+              <li contenteditable="true">TBA</li>
+              <li contenteditable="true">TBA</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Inter-Family Relations</h3>
+            <h4>Allies</h4>
+            <i>TBA</i>
+            <h4>Rivals</h4>
+            <i>TBA</i>
+            <h4>Blood Feuds</h4>
+            <li>
+              <b>The Juneau family:</b> The Heraux family was once a part of the
+              Juneau (then Junius) family line until Dionysus Heraux broke rank
+              and had a child with a muggle woman. The Heraux family line has
+              never forgiven the Juneau family from outcasting them and sending
+              them into abject poverty for centuries.
+            </li>
+          </section>
+        </div>
+      </details>
+      <!-- FAMILY END -->
+
+<!-- FAMILY START -->
+      <details class="family">
+        <summary>
+          <span class="family-name">House Jaeger</span>
+          <span class="meta">Pureblood · Est. 16th Century</span>
+          <span class="badge prominent">Prominent</span>
+        </summary>
+
+        <div class="family-content">
+          <section>
+            <h3>History</h3>
+            <p contenteditable="true">
+    The Jaeger family is considered royalty in the Danish wizarding world; they once ruled as kings and queens throughout Denmark until very recent years. By technical definition, the living ruling head of the house is still considered a king or queen. The family has been viewed as scholarly and elegant, preferring to blend beauty with brains. However, they are also known to have... unethical means of snipping the 'dying' branches of their family trees. Throughout history, death has plagued the Jaeger family, with children seemingly falling ill and passing suddenly-- at least, according to Ministry record.
+            </p>
+          </section>
+
+          <section>
+            <h3>Lineage</h3>
+            <ul>
+              <li contenteditable="true">Ancestral roots: Danish</li>
+              <li contenteditable="true">Founder: King Magnus Jaeger</li>
+              <li contenteditable="true">Notable Ancestors: ——</li>
+              <li contenteditable="true">Current Head: Nikolaj Jaeger (AKA: The Mad King)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Political Alignment</h3>
+            <ul>
+              <li contenteditable="true">Wizengamot seat: No</li>
+              <li contenteditable="true">Registry stance: Neutral</li>
+              <li contenteditable="true">Ministry reputation: Slightly positive</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Magical Specialties</h3>
+            <ul>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Inter-Family Relations</h3>
+            <h4>Allies</h4>
+            <i>——</i>
+            <h4>Rivals</h4>
+            <i>——</i>
+            <h4>Blood Feuds</h4>
+            <i>——</i>
+          </section>
+        </div>
+      </details>
+      <!-- FAMILY END -->
+        
+
+        <!-- FAMILY START -->
+      <details class="family">
+        <summary>
+          <span class="family-name">House Temnik</span>
+          <span class="meta">Vampire · Est. 13th Century</span>
+          <span class="badge obscure">Obscure</span>
+        </summary>
+
+        <div class="family-content">
+          <section>
+            <h3>History</h3>
+            <p contenteditable="true">
+       ——
+            </p>
+          </section>
+
+          <section>
+            <h3>Lineage</h3>
+            <ul>
+              <li contenteditable="true">Ancestral roots: Slovenian</li>
+              <li contenteditable="true">Founder: Gregor Velesnik</li>
+              <li contenteditable="true">Notable Ancestors: ——</li>
+              <li contenteditable="true">Current Head: Vesna Temnik</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Political Alignment</h3>
+            <ul>
+              <li contenteditable="true">Wizengamot seat: No</li>
+              <li contenteditable="true">Registry stance: Anti-registry</li>
+              <li contenteditable="true">Ministry reputation: Strongly disliked</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Magical Specialties</h3>
+            <ul>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+              <li contenteditable="true">——</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Inter-Family Relations</h3>
+            <h4>Allies</h4>
+            <i>——</i>
+            <h4>Rivals</h4>
+            <i>——</i>
+            <h4>Blood Feuds</h4>
+            <i>——</i>
+          </section>
+        </div>
+      </details>
+      <!-- FAMILY END -->
+
+
+        
+    </main>
+
+    <footer>
+      <p>
+        Fan-created content · Not affiliated with Warner Bros. or J.K. Rowling
+      </p>
+    </footer>
+  </body>
+</html>
