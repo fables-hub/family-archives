@@ -1,173 +1,204 @@
 <style>
 
-    @import url('https://fonts.cdnfonts.com/css/petter-jenne');
-    @import url('https://fonts.cdnfonts.com/css/plush-trial');
+      @import url('https://fonts.cdnfonts.com/css/petter-jenne');
+      @import url('https://fonts.cdnfonts.com/css/plush-trial');
 
-    :root {
-      /* Base */
-      --bg: #0c0f14;        /* deep ink */
-      --panel: #161b22;     /* slate ledger */
+      :root {
+        /* Base */
+        --bg: #0c0f14;        /* deep ink */
+        --panel: #161b22;     /* slate ledger */
 
-      /* Primary Accent */
-      --accent: #3e5c6f;    /* muted steel blue */
+        /* Primary Accent */
+        --accent: #3e5c6f;    /* muted steel blue */
 
-      /* Text */
-      --text: #e2e6eb;      /* official parchment */
-      --muted: #9aa6b2;     /* registry gray */
+        /* Text */
+        --text: #e2e6eb;      /* official parchment */
+        --muted: #9aa6b2;     /* registry gray */
 
-      /* Utility */
-      --seal: #6b8fa3;      /* Ministry stamp */
-      --border: #2a3440;    /* divider lines */
-    }
+        /* Utility */
+        --seal: #6b8fa3;      /* Ministry stamp */
+        --border: #2a3440;    /* divider lines */
+      }
 
 
-    * {
-      box-sizing: border-box;
-    font-family: 'Plush-Trial', sans-serif;
-    }
+      * {
+        box-sizing: border-box;
+      font-family: 'Plush-Trial', sans-serif;
+      }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-    }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
 
-    .archive-header {
-      text-align: center;
-      padding: 3rem 1rem;
-      border-bottom: 1px solid var(--accent);
-    }
+      .archive-header {
+        text-align: center;
+        padding: 3rem 1rem;
+        border-bottom: 1px solid var(--accent);
+      }
 
-    .archive-header p {
-      color: var(--muted);
-      font-style: italic;
-    }
+      .archive-header p {
+        color: var(--muted);
+        font-style: italic;
+      }
 
-    .accordion {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
+      .accordion {
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
+      }
 
-    .family {
-      background: var(--panel);
-      border: 1px solid var(--accent);
-      margin-bottom: 1rem;
-    }
+      .family {
+        background: var(--panel);
+        border: 1px solid var(--accent);
+        margin-bottom: 1rem;
+      }
 
-summary {
-  display: grid;
-  grid-template-columns: 1fr auto min-content;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1.25rem;
-  cursor: pointer;
-}
-
-/* Remove flex styling if present */
-summary {
-  justify-content: unset;
-}
-
-/* Optional: hide default marker */
-summary::-webkit-details-marker {
-  display: none;
-}
-
-    .family-name {
-      font-size: 1.1rem;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .family[open] summary {
-      border-bottom: 1px solid var(--accent);
-    }
-
-    .family-content {
-      padding: 1.5rem;
-    }
-
-    section {
-      margin-bottom: 1.5rem;
-    }
-
-    section h3 {
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 0.3rem;
-        font-weight: normal;
-        font-size: 30px;
-        margin-top: 0px;
-    }
-
-    section h4 {
-        font-size: 20px; }
-
-    .secrets {
-      background: #421825;
-      border: 1px dashed #573741;
-      padding: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    h1
-    {
-        font-family: 'Petter Jenne', sans-serif;
-        font-weight: normal;
-        font-size: 100px;
-        margin-bottom: 0px;
-    }
-
-    li {
-        margin-bottom: 10px; }
-
-li:last-child
-    {
-        margin-bottom: 0px;
-    }
-
-    /* Base badge style */
-  .badge {
-    padding: 0.2rem 0.5rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 0.25rem;
-    text-transform: uppercase;
-    margin-left: 0.5rem;
-    width: 100px; /* or whatever fits your labels */
-    text-align: center;
-  }
-
-  /* Prominent badge */
-  .badge.prominent {
-    background: #368765; /* steel blue (fits Ministry palette) */
-    color: #e2e6eb;
-    border: 1px solid #000;
-  }
-
-  /* Obscure badge */
-  .badge.obscure {
-    background: #87314b; /* lighter registry stamp color */
-    color: #0a0b10;
-    border: 1px solid #000;
-  }
-
-  /* Optional: Slight spacing/flex adjustments for summary */
   summary {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto min-content;
     align-items: center;
-    justify-content: space-between;
     gap: 0.5rem;
+    padding: 1.25rem;
+    cursor: pointer;
   }
+
+  /* Remove flex styling if present */
+  summary {
+    justify-content: unset;
+  }
+
+  /* Optional: hide default marker */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+      .family-name {
+        font-size: 1.1rem;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .family[open] summary {
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .family-content {
+        padding: 1.5rem;
+      }
+
+      section {
+        margin-bottom: 1.5rem;
+      }
+
+      section h3 {
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 0.3rem;
+          font-weight: normal;
+          font-size: 30px;
+          margin-top: 0px;
+      }
+
+      section h4 {
+          font-size: 20px; }
+
+      .secrets {
+        background: #421825;
+        border: 1px dashed #573741;
+        padding: 1rem;
+      }
+
+      /* === PROGENITOR GROUPING === */
+
+  .progenitor-group {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .progenitor-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .progenitor-header h2 {
+    font-family: 'Petter Jenne', sans-serif;
+    font-weight: normal;
+    font-size: 48px;
+    margin: 0;
+  }
+
+  .progenitor-header p {
+    color: var(--muted);
+    font-style: italic;
+    margin: 0.25rem 0 0;
+  }
+
+  /* Subfamilies visually descend */
+  .family.subfamily {
+    margin-left: 1.5rem;
+    border-color: var(--border);
+  }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      h1
+      {
+          font-family: 'Petter Jenne', sans-serif;
+          font-weight: normal;
+          font-size: 100px;
+          margin-bottom: 0px;
+      }
+
+      li {
+          margin-bottom: 10px; }
+
+  li:last-child
+      {
+          margin-bottom: 0px;
+      }
+
+      /* Base badge style */
+    .badge {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 0.25rem;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
+      width: 100px; /* or whatever fits your labels */
+      text-align: center;
+    }
+
+    /* Prominent badge */
+    .badge.prominent {
+      background: #368765; /* steel blue (fits Ministry palette) */
+      color: #e2e6eb;
+      border: 1px solid #000;
+    }
+
+    /* Obscure badge */
+    .badge.obscure {
+      background: #87314b; /* lighter registry stamp color */
+      color: #0a0b10;
+      border: 1px solid #000;
+    }
+
+    /* Optional: Slight spacing/flex adjustments for summary */
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
 </style>
 
 <!DOCTYPE html>
@@ -180,20 +211,36 @@ li:last-child
   <body>
     <header class="archive-header">
       <h1>Wizarding Family Archives</h1>
-        <blockquote><small><i>Please note that anything in the red boxes is exposition, but not known in-game unless discovered in-game during play or discussed between players.</i></small></blockquote>
+      <blockquote>
+        <small
+          ><i
+            >Please note that anything in the red boxes is exposition, but not
+            known in-game unless discovered in-game during play or discussed
+            between players.</i
+          ></small
+        >
+      </blockquote>
     </header>
 
     <main class="accordion">
-      <!-- FAMILY START -->
-      <details class="family">
-        <summary>
-          <span class="family-name">House Ashvale</span>
-          <span class="meta">Pureblood · Est. 14th Century</span>
-          <span class="badge prominent">Prominent</span>
-        </summary>
+     
+     <!-- PROGENITOR GROUP START -->
+<section class="progenitor-group">
 
-        <div class="family-content">
-          <section>
+  <div class="progenitor-header">
+    <h2>Jorune Bloodline</h2>
+  </div>
+
+  <!-- ASHVALE -->
+  <details class="family subfamily">
+    <summary>
+      <span class="family-name">House Ashvale</span>
+      <span class="meta">Pureblood · Branch of House Jorune · Est. 14th Century</span>
+      <span class="badge prominent">Prominent</span>
+    </summary>
+
+    <div class="family-content">
+    <section>
             <h3>Geographic & Historic Origin</h3>
                 <ul>
                     <li><b>Ancestral land:</b> Wales</li>
@@ -203,7 +250,6 @@ li:last-child
                 </ul>
             <p>The Ashvale family is a notable pureblooded family in Wales... but perhaps not known for entirely <i>positive</i> reasons. "Eccentric", some neighbors would call them. "Mad", others would challenge. Many speculate the pure blood of their lineage has led to magical curses that affected the minds... Though, it wouldn't explain how those who enter the family outside of the blood bond are content within the Ashvale manor. Some have even posed that the family are all vampires, though there's never been any evidence to support this accusation. Regardless of what afflicts the family, many can agree the Ashvales are simply <b>not normal.</b></p>
           </section>
-
 
           <section>
         <h3>Identity & Culture</h3>
@@ -253,8 +299,116 @@ li:last-child
 </ul>
   
           </section>
-        </div>
-      </details>
+    </div>
+  </details>
+
+  <!-- ALOYSIUS -->
+  <details class="family subfamily">
+    <summary>
+      <span class="family-name">House Aloysius</span>
+      <span class="meta">Halfblood · Branch of House Jorune</span>
+      <span class="badge obscure">Obscure</span>
+    </summary>
+
+    <div class="family-content">
+ <section>
+
+	<h3>Geographic & Historic Origin</h3>
+		<ul>
+                	<li><b>Ancestral land:</b> X</li>
+                	<li><b>Current territory:</b> X</li>
+                	<li><b>Founder:</b> X</li>
+                	<li><b>Current head:</b> X</li>
+                </ul>
+	
+	<p>Lorem ipsum.</p>
+
+</section>
+
+<section>
+
+	<h3>Identity & Culture</h3>
+		
+		<ul>
+			<li><b>Overarching value:</b> X</li>
+		</ul>
+              
+    <h4>Core Values</h4>
+
+		<ul>
+			<li><b>Core Value #1 - X:</b> Lorem.</li>
+			<li><b>Core Value #2 - X:</b> Lorem.</li>
+			<li><b>Core Value #3 - X:</b> Lorem.</li>
+		</ul>
+
+    <h4>Taboos</h4>
+
+		<ul>
+			<li><b>Taboo #1 - X:</b> Lorem.</li>
+			<li><b>Taboo #2 - X:</b> Lorem.</li>
+			<li><b>Taboo #3 - X:</b> Lorem.</li>
+		</ul>
+
+    <h4>Specialty Disciplines</h4>
+ 		<ul>
+			<li>One</li>
+     			<li>Two</li>
+			<li>Three</li>
+		</ul>
+             
+</section>
+
+
+<section>
+	
+	<h3>Inter-Family Relations</h3>
+        	
+	<h4>Allies</h4>
+		<ul>
+    			<li><b>X:</b> Lorem.</li>
+		</ul>
+
+        <h4>Neutrals</h4>
+		<ul>
+    			<li><b>X:</b> Lorem.</li>
+		</ul>
+
+        <h4>Enemies</h4>
+		<ul>
+    			<li><b>X:</b> Lorem.</li>
+		</ul>
+
+          </section>
+    </div>
+  </details>
+
+    <!-- JORUNE -->
+  <details class="family subfamily">
+    <summary>
+      <span class="family-name">House Jorune</span>
+      <span class="meta">Pureblood · English Branch of House Jorune</span>
+      <span class="badge obscure">Obscure</span>
+    </summary>
+
+    <div class="family-content">
+      <section>
+        <h3>Overview</h3>
+        <p>
+          Formed after a Jorune migration into England, House Greensong abandoned
+          the macabre tendencies of their kin in favor of refinement, literacy,
+          and social power. Their library is among the largest private magical
+          collections in Britain.
+        </p>
+      </section>
+    </div>
+  </details>
+
+</section>
+<!-- PROGENITOR GROUP END -->
+
+
+
+
       <!-- FAMILY END -->
 
       <!-- FAMILY START -->
@@ -320,7 +474,9 @@ li:last-child
             <ul>
               <li contenteditable="true">Wizengamot seat: No</li>
               <li contenteditable="true">Registry stance: Neutral</li>
-              <li contenteditable="true">Ministry reputation: Slightly positive</li>
+              <li contenteditable="true">
+                Ministry reputation: Slightly positive
+              </li>
             </ul>
           </section>
 
@@ -343,10 +499,10 @@ li:last-child
             <i>——</i>
           </section>
 
-            <section>
-              <h4>Exposition</h4>
-                <div class="secrets">This is a test.</div>
-            </section>
+          <section>
+            <h4>Exposition</h4>
+            <div class="secrets">This is a test.</div>
+          </section>
         </div>
       </details>
       <!-- FAMILY END -->
@@ -438,7 +594,7 @@ li:last-child
       </details>
       <!-- FAMILY END -->
 
-<!-- FAMILY START -->
+      <!-- FAMILY START -->
       <details class="family">
         <summary>
           <span class="family-name">House Jaeger</span>
@@ -450,7 +606,16 @@ li:last-child
           <section>
             <h3>History</h3>
             <p contenteditable="true">
-    The Jaeger family is considered royalty in the Danish wizarding world; they once ruled as kings and queens throughout Denmark until very recent years. By technical definition, the living ruling head of the house is still considered a king or queen. The family has been viewed as scholarly and elegant, preferring to blend beauty with brains. However, they are also known to have... unethical means of snipping the 'dying' branches of their family trees. Throughout history, death has plagued the Jaeger family, with children seemingly falling ill and passing suddenly-- at least, according to Ministry record.
+              The Jaeger family is considered royalty in the Danish wizarding
+              world; they once ruled as kings and queens throughout Denmark
+              until very recent years. By technical definition, the living
+              ruling head of the house is still considered a king or queen. The
+              family has been viewed as scholarly and elegant, preferring to
+              blend beauty with brains. However, they are also known to have...
+              unethical means of snipping the 'dying' branches of their family
+              trees. Throughout history, death has plagued the Jaeger family,
+              with children seemingly falling ill and passing suddenly-- at
+              least, according to Ministry record.
             </p>
           </section>
 
@@ -460,7 +625,9 @@ li:last-child
               <li contenteditable="true">Ancestral roots: Danish</li>
               <li contenteditable="true">Founder: King Magnus Jaeger</li>
               <li contenteditable="true">Notable Ancestors: ——</li>
-              <li contenteditable="true">Current Head: Nikolaj Jaeger (AKA: The Mad King)</li>
+              <li contenteditable="true">
+                Current Head: Nikolaj Jaeger (AKA: The Mad King)
+              </li>
             </ul>
           </section>
 
@@ -469,7 +636,9 @@ li:last-child
             <ul>
               <li contenteditable="true">Wizengamot seat: No</li>
               <li contenteditable="true">Registry stance: Neutral</li>
-              <li contenteditable="true">Ministry reputation: Slightly positive</li>
+              <li contenteditable="true">
+                Ministry reputation: Slightly positive
+              </li>
             </ul>
           </section>
 
@@ -494,9 +663,8 @@ li:last-child
         </div>
       </details>
       <!-- FAMILY END -->
-        
 
-        <!-- FAMILY START -->
+      <!-- FAMILY START -->
       <details class="family">
         <summary>
           <span class="family-name">House Temnik</span>
@@ -508,13 +676,35 @@ li:last-child
           <section>
             <h3>History</h3>
             <p contenteditable="true">
+              The Temnik family is a vampire lineage, established around the
+              13th century near Lake Bled in Slovenia. Historically, the family
+              has been characterized by their political heirarchy within their
+              family: while the main family is handed down through birthright
+              (as their species of vampires is able to have children), the full
+              family consists of both bloodright and being turned. The current
+              ruling heirarchy is always referred to as the "Prince", regardless
+              of gender. They are the top of the family, and have final say in
+              all family business. The second-most ruling heirarchy is the
+              Sentinel, which is the Prince's personally chosen right hand.
+              Beneath them are the Advisor and the Enforcer, the former of who
+              represents both the Prince and Sentinel, and the socialites
+              beneath them who voice their concerns, to bridge communication
+              between the two. The latter ensures all decrees issued by the
+              Prince are maintained, and if broken, the infractor is punished.
+              The rest of the family have varying positions, but are referred to
+              as "socialites"-- the ones who keep everything running smoothly
+              and bring prosperity to the family.
+            </p>
 
-The Temnik family is a vampire lineage, established around the 13th century near Lake Bled in Slovenia. Historically, the family has been characterized by their political heirarchy within their family: while the main family is handed down through birthright (as their species of vampires is able to have children), the full family consists of both bloodright and being turned. The current ruling heirarchy is always referred to as the "Prince", regardless of gender. They are the top of the family, and have final say in all family business. The second-most ruling heirarchy is the Sentinel, which is the Prince's personally chosen right hand. Beneath them are the Advisor and the Enforcer, the former of who represents both the Prince and Sentinel, and the socialites beneath them who voice their concerns, to bridge communication between the two. The latter ensures all decrees issued by the Prince are maintained, and if broken, the infractor is punished. The rest of the family have varying positions, but are referred to as "socialites"-- the ones who keep everything running smoothly and bring prosperity to the family.</p>
-
-<p contenteditable="true">
-
-The Temnik family ages slowly, but is not immortal; as such, they allow new members into their ranks to ensure a strong line. Turning normal humans into vampires is not on a whim, and must be approved by the Prince in order to ensure safety and protection of their family. Not just anyone is allowed into their home, and it is considered a great honor and privilege to be approved by the Prince.</p>
-              
+            <p contenteditable="true">
+              The Temnik family ages slowly, but is not immortal; as such, they
+              allow new members into their ranks to ensure a strong line.
+              Turning normal humans into vampires is not on a whim, and must be
+              approved by the Prince in order to ensure safety and protection of
+              their family. Not just anyone is allowed into their home, and it
+              is considered a great honor and privilege to be approved by the
+              Prince.
+            </p>
           </section>
 
           <section>
@@ -532,7 +722,9 @@ The Temnik family ages slowly, but is not immortal; as such, they allow new memb
             <ul>
               <li contenteditable="true">Wizengamot seat: No</li>
               <li contenteditable="true">Registry stance: Anti-registry</li>
-              <li contenteditable="true">Ministry reputation: Strongly disliked</li>
+              <li contenteditable="true">
+                Ministry reputation: Strongly disliked
+              </li>
             </ul>
           </section>
 
@@ -550,16 +742,22 @@ The Temnik family ages slowly, but is not immortal; as such, they allow new memb
             <h4>Allies</h4>
             <i>——</i>
             <h4>Enemies</h4>
-            <li><b>The Tremere Family:</b> More specifically, Faustus Tremere, for his vampire registration law. While the current Prince has tentatively agreed to be put on the registry in the British ministry, it has been with the understanding that it was a show of faith, and the Ministry outing the Prince would result in what was only described as "tragic consequences." In return, the Prince has agreed that no one within the British Ministry of Magic's reach will be turned during the Prince's stay in their territory.</li>
+            <li>
+              <b>The Tremere Family:</b> More specifically, Faustus Tremere, for
+              his vampire registration law. While the current Prince has
+              tentatively agreed to be put on the registry in the British
+              ministry, it has been with the understanding that it was a show of
+              faith, and the Ministry outing the Prince would result in what was
+              only described as "tragic consequences." In return, the Prince has
+              agreed that no one within the British Ministry of Magic's reach
+              will be turned during the Prince's stay in their territory.
+            </li>
             <h4>Blood Feuds</h4>
             <i>——</i>
           </section>
         </div>
       </details>
       <!-- FAMILY END -->
-
-
-        
     </main>
 
     <footer>
