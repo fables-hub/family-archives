@@ -158,6 +158,27 @@ main {
   color: var(--muted);
 }
 
+.family.tier-2 {
+  margin-left: 3.25rem;
+  position: relative;
+}
+
+.family.tier-2::before {
+  content: "";
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.family.tier-2 summary::before {
+  content: "↳";
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
+	
 /* -------------------------
    OPEN STATE
 ------------------------- */
