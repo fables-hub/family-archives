@@ -1,15 +1,14 @@
 <style>
+  @import url('https://fonts.cdnfonts.com/css/petter-jenne');
+  @import url('https://fonts.cdnfonts.com/css/plush-trial');
 
-      @import url('https://fonts.cdnfonts.com/css/petter-jenne');
-      @import url('https://fonts.cdnfonts.com/css/plush-trial');
+  :root {
+  /* Base */
+  	--bg: #0c0f14;        /* deep ink */
+  	--panel: #161b22;     /* slate ledger */
 
-      :root {
-        /* Base */
-        --bg: #0c0f14;        /* deep ink */
-        --panel: #161b22;     /* slate ledger */
-
-        /* Primary Accent */
-        --accent: #3e5c6f;    /* muted steel blue */
+  /* Primary Accent */
+  	--accent: #b8a179;    /* muted gold */
 
         /* Text */
         --text: #e2e6eb;      /* official parchment */
@@ -23,7 +22,7 @@
 
       * {
         box-sizing: border-box;
-      font-family: 'Plush-Trial', sans-serif;
+        font-family: 'Plush-Trial', sans-serif;
       }
 
       body {
@@ -32,10 +31,16 @@
         color: var(--text);
       }
 
+main {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
       .archive-header {
         text-align: center;
         padding: 3rem 1rem;
-        border-bottom: 1px solid var(--accent);
+        border-bottom: 1px solid var(--accent);  
       }
 
       .archive-header p {
@@ -43,163 +48,158 @@
         font-style: italic;
       }
 
-      .accordion {
-        max-width: 1000px;
-        margin: auto;
-        padding: 2rem;
-      }
+	.archive-header h1 {
+		font-family: 'Petter Jenne', sans-serif;
+		font-size: 100px;
+		font-weight: 200;
+		margin-top: 0px;
+	}
 
-      .family {
-        background: var(--panel);
-        border: 1px solid var(--accent);
-        margin-bottom: 1rem;
-      }
+/* -------------------------
+   BLOODLINE SECTION
+------------------------- */
+.bloodline {
+  margin-bottom: 4rem;
+}
 
-  summary {
-    display: grid;
-    grid-template-columns: 1fr auto min-content;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.25rem;
-    cursor: pointer;
-  }
+.bloodline-title {
+  font-size: 2.5rem;
+  font-weight: 200;
+	font-size: 70px;
+  font-family: 'Petter Jenne', sans-serif;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+	margin-top: 0px;
+}
 
-  /* Remove flex styling if present */
-  summary {
-    justify-content: unset;
-  }
+/* -------------------------
+   FAMILY ACCORDION
+------------------------- */
+.family {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
 
-  /* Optional: hide default marker */
-  summary::-webkit-details-marker {
-    display: none;
-  }
+.family summary {
+  cursor: pointer;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+}
 
-      .family-name {
-        font-size: 1.1rem;
-      }
+.family summary::-webkit-details-marker {
+  display: none;
+}
 
-      .meta {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
+.family-name {
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+}
 
-      .family[open] summary {
-        border-bottom: 1px solid var(--accent);
-      }
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex-basis: 100%;
+}
 
-      .family-content {
-        padding: 1.5rem;
-      }
+.badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
 
-      section {
-        margin-bottom: 1.5rem;
-      }
+/* -------------------------
+   CONTENT
+------------------------- */
+.family-content {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
 
-      section h3 {
-        border-bottom: 1px solid var(--accent);
-        padding-bottom: 0.3rem;
-          font-weight: normal;
-          font-size: 30px;
-          margin-top: 0px;
-      }
+/* -------------------------
+   TIERS
+------------------------- */
+.family.tier-0 {
+  margin-left: 0;
+}
 
-      section h4 {
-          font-size: 20px; }
+.family.tier-1 {
+  margin-left: 2.25rem;
+  position: relative;
+}
 
-      .secrets {
-        background: #421825;
-        border: 1px dashed #573741;
-        padding: 1rem;
-      }
+.family.tier-1::before {
+  content: "";
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
 
-      /* === PROGENITOR GROUPING === */
+.family.tier-1 summary::before {
+  content: "↳";
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
 
-  .progenitor-group {
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
-    margin-bottom: 3rem;
-  }
+/* -------------------------
+   OPEN STATE
+------------------------- */
+.family[open] {
+  border-color: var(--accent);
+}
 
-  .progenitor-header {
-    margin-bottom: 1.5rem;
-  }
+.family[open] summary {
+  background: rgba(255,255,255,0.02);
+}
 
-  .progenitor-header h2 {
-    font-family: 'Petter Jenne', sans-serif;
-    font-weight: normal;
-    font-size: 48px;
-    margin: 0;
-  }
+/* -------------------------
+   UTILITY
+------------------------- */
+strong {
+  color: var(--accent);
+}
 
-  .progenitor-header p {
+footer {
+	text-align: center;
+    padding: 2rem;
     color: var(--muted);
-    font-style: italic;
-    margin: 0.25rem 0 0;
-  }
-
-  /* Subfamilies visually descend */
-  .family.subfamily {
-    margin-left: 1.5rem;
-    border-color: var(--border);
-  }
-
-      footer {
-        text-align: center;
-        padding: 2rem;
-        color: var(--muted);
-        font-size: 0.85rem;
+    font-size: 0.85rem;
       }
-
-      h1
-      {
-          font-family: 'Petter Jenne', sans-serif;
-          font-weight: normal;
-          font-size: 100px;
-          margin-bottom: 0px;
-      }
-
-      li {
-          margin-bottom: 10px; }
-
-  li:last-child
-      {
-          margin-bottom: 0px;
-      }
-
-      /* Base badge style */
-    .badge {
-      padding: 0.2rem 0.5rem;
-      font-size: 0.75rem;
-      font-weight: bold;
-      border-radius: 0.25rem;
-      text-transform: uppercase;
-      margin-left: 0.5rem;
-      width: 100px; /* or whatever fits your labels */
-      text-align: center;
-    }
-
-    /* Prominent badge */
-    .badge.prominent {
-      background: #368765; /* steel blue (fits Ministry palette) */
-      color: #e2e6eb;
-      border: 1px solid #000;
-    }
-
-    /* Obscure badge */
-    .badge.obscure {
-      background: #87314b; /* lighter registry stamp color */
-      color: #0a0b10;
-      border: 1px solid #000;
-    }
-
-    /* Optional: Slight spacing/flex adjustments for summary */
-    summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
+  
 </style>
+
+<script>
+  /* --------------------------------
+   OPTIONAL: SINGLE-OPEN MODE
+   (only one family open at a time)
+-------------------------------- */
+document.querySelectorAll(".family").forEach(family => {
+  family.addEventListener("toggle", () => {
+    if (family.open) {
+      document.querySelectorAll(".family").forEach(other => {
+        if (other !== family) other.open = false;
+      });
+    }
+  });
+});
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -208,7 +208,11 @@
     <title>Wizarding Family Archives</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+
+	<body>
+  <link rel="stylesheet" href="style.css" />
+  
+  
     <header class="archive-header">
       <h1>Wizarding Family Archives</h1>
       <blockquote>
@@ -222,1585 +226,267 @@
       </blockquote>
     </header>
 
-    <main class="accordion">
-      <!-- PROGENITOR GROUP START -->
-      <section class="progenitor-group">
-        <div class="progenitor-header">
-          <h2>Aloyius Bloodline</h2>
-        </div>
-
-        <!-- Aloysius -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Aloysius</span>
-            <span class="meta">Halfblood · Progenitor</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Forte -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Forte</span>
-            <span class="meta">Pureblood · Branch</span>
-            <span class="badge prominent">Prominent</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Di Verona -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Di Verona</span>
-            <span class="meta">Xblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Temnik -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Temnik</span>
-            <span class="meta">Vampire blood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-      </section>
-
-      <!-- PROGENITOR GROUP END -->
-
-      <!-- PROGENITOR GROUP START -->
-      <section class="progenitor-group">
-        <div class="progenitor-header">
-          <h2>Bastille Bloodline</h2>
-        </div>
-
-        <!-- BASTILLE -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Bastille</span>
-            <span class="meta">Pureblood · Progenitor</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- D'ARCY -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House D'Arcy</span>
-            <span class="meta">Halfblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- GOLDBLOOM -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Goldbloom</span>
-            <span class="meta">Pureblood · Branch</span>
-            <span class="badge prominent">Prominent</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- NOBLE -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Noble</span>
-            <span class="meta">Halfblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-      </section>
-
-      <!-- PROGENITOR GROUP END -->
-
-      <!-- PROGENITOR GROUP START -->
-      <section class="progenitor-group">
-        <div class="progenitor-header">
-          <h2>Jæger Bloodline</h2>
-        </div>
-
-        <!-- HRAFN -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Hrafn</span>
-            <span class="meta">Halfblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- DAHL -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Dahl</span>
-            <span class="meta">Pureblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- HAINSTROM  -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Hainström</span>
-            <span class="meta">Pureblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Jaeger -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Jaeger</span>
-            <span class="meta">Pureblood · Progenitor</span>
-            <span class="badge prominent">Prominent</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-      </section>
-
-      <!-- PROGENITOR GROUP END -->
-
-<!-- PROGENITOR GROUP START -->
-	<section class="progenitor-group">
-		<div class="progenitor-header">
-			<h2>Jorune Bloodline</h2>
-		</div>
-
-<!-- ASHVALE -->
-	<details class="family subfamily">
-		<summary>
-			<span class="family-name">House Ashvale</span>
-			<span class="meta">Pureblood · Branch · Est. 13th Century</span>
-			<span class="badge Prominent">Prominent</span>
-		</summary>
-		
-		<div class="family-content">
-			<section>
-				<h3>Geographic & Historic Origin</h3>
-					<ul>
-                		<li><b>Ancestral land:</b> Wales</li>
-                		<li><b>Current territory:</b> Wales</li>
-                		<li><b>Founder:</b> Geraint o dŷ Jorune</li>
-                		<li><b>Current head:</b> Norrix Ashvale</li>
-					</ul>
-				
-            		<p>The Ashvale family is a notable pureblooded family in Wales... but perhaps not known for entirely <i>positive</i> reasons. "Eccentric", some neighbors would call them. "Mad", others would challenge. Many speculate the pure blood of their lineage has led to magical curses that affected the minds... Though, it wouldn't explain how those who enter the family outside of the blood bond are content within the Ashvale manor. Some have even posed that the family are all vampires, though there's never been any evidence to support this accusation. Regardless of what afflicts the family, many can agree the Ashvales are simply <b>not normal.</b></p>
-			</section>
-
-<section>
-
-	<h3>Identity & Culture</h3>
-		
-		<ul>
-			<li><b>Overarching value:</b> Autonomy</li>
-		</ul>
-              
-    <h4>Core Values</h4>
-
-		<ul>
-                <li>
-                  <b>Core Value #1 - Individuality Without Shame:</b>
-                  Eccentricity and unusual interests are welcomed by the
-                  Ashvales. "Strange" is not a flaw, but rather an act of
-                  bravery.
-                </li>
-                <li>
-                  <b>Core Value #2 - Loyalty to Kin:</b> Ashvales are fiercely
-                  loyal to their family, whether by blood, marriage, or their
-                  own choosing.
-                </li>
-                <li>
-                  <b>Core Value #3 - Indulgence of the Obscure:</b> Ashvales
-                  value that which is often overlooked by society, whether it's
-                  old magic, outdated traditions, or "odd" wizardry. Curiosity
-                  is cultivated and housed safely within their walls.
-                </li>
-              </ul>
-
-              <h4>Taboos</h4>
-              <ul>
-                <li>
-                  <b>Taboo #1 - Public Conformity for Approval:</b> An Ashvale
-                  who dares hide their true nature to gain social favor or
-                  popularity is considered a traitor to their family.
-                </li>
-                <li>
-                  <b>Taboo #2 - Weaponizing Family Secrets:</b> The Ashvale
-                  secrets are numerous and macabre; using them for leverage or
-                  blackmail is a grave violation.
-                </li>
-                <li>
-                  <b>Taboo #3 - Harm Without Purpose:</b> Cruelty for the sake
-                  of cruelty is forbidden among Ashvales; they may be morbid and
-                  macabre, but they are not evil. Any harm must have clear
-                  intent, justification, and necessity.
-                </li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>Potioneering</li>
-                <li>Herbology</li>
-                <li>Anatomy & medical wizardry</li>
-              </ul>
-             
-</section>
-
-
-<section>
-	
-	<h3>Inter-Family Relations</h3>
-        	
-	 <h4>Allies</h4>
-              <ul>
-			  </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li>
-                  <b>Greensong:</b> Distant relatives from the Jorune bloodline.
-                </li>
-
-				<li>
-                  <b>Moss:</b> Distant relatives from the Jorune bloodline.
-                </li>
-              </ul>
-				  
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li>
-                  <b>Jorune:</b> Progenitor family; conflicting views on the
-                  macabre and morbid.
-                </li>
-              </ul>
-
-          </section>
+   <main>
+
+<!-- =========================
+     JORUNE BLOODLINE
+========================= -->
+
+<!-- NEW BLOODLINE -->
+
+<section class="bloodline">
+  <h2 class="bloodline-title">Aloysius Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
+    <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
     </div>
   </details>
 
-<!-- GREENSONG -->
-  <details class="family subfamily">
+  <!-- BRANCH #1 -->
+  <details class="family tier-1">
+ <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+  <!-- BRANCH #2 -->
+  <details class="family tier-1">
+   <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+</section>	   
+
+	   <!-- NEW BLOODLINE -->
+
+<section class="bloodline">
+  <h2 class="bloodline-title">Bastille Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
+    <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+  <!-- BRANCH #1 -->
+  <details class="family tier-1">
+ <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+  <!-- BRANCH #2 -->
+  <details class="family tier-1">
+   <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+</section>	
+
+	   <!-- NEW BLOODLINE -->
+
+<section class="bloodline">
+  <h2 class="bloodline-title">Jaeger Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
+    <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+  <!-- BRANCH #1 -->
+  <details class="family tier-1">
+ <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+  <!-- BRANCH #2 -->
+  <details class="family tier-1">
+   <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
+
+</section>	
+
+
+	   <section class="bloodline">
+  <h2 class="bloodline-title">Jorune Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
+    <summary>
+      <span class="family-name">House Jorune</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">Welsh · Established 6th Century · Mythic Roots to Merlin</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        The original bloodline from which all later branches descend. House Jorune
+        claims direct spiritual and academic lineage to early Brythonic magic and
+        proto-wizard law. Considered foundational rather than politically dominant.
+      </p>
+    </div>
+  </details>
+
+  <!-- ASHVALE -->
+  <details class="family tier-1">
+    <summary>
+      <span class="family-name">House Ashvale</span>
+      <span class="badge">Branch</span>
+      <span class="meta">Welsh · Established 14th Century · Gothic Eccentrics</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        A culturally eccentric offshoot known for ritualized domestic magic,
+        funerary arts, and elaborate architecture. Harmless, insular, and deeply
+        traditional.
+      </p>
+    </div>
+  </details>
+
+  <!-- GREENSONG -->
+  <details class="family tier-1">
     <summary>
       <span class="family-name">House Greensong</span>
-      <span class="meta">Halfblood · Branch · Est. 15th Century</span>
-      <span class="badge obscure">Obscure</span>
+      <span class="badge">Branch</span>
+      <span class="meta">English · Established 12th Century · Scholarly Aristocracy</span>
     </summary>
-
     <div class="family-content">
- <section>
-
-	<h3>Geographic & Historic Origin</h3>
-		<ul>
-                	<li><b>Ancestral land:</b> Wales</li>
-                	<li><b>Current territory:</b> England</li>
-                	<li><b>Founder:</b> Isambard ap Jorune (Angelized to Greensong)</li>
-                	<li><b>Current head:</b> Rowland Greensong</li>
-                </ul>
-	 
-	<p>The Greensong lineage began with a fracture within the Jorune family; while the main branch wished to emphasize old magic and stick to the traditions and duties of their family line, the Greensong branch desired to retire their loyalties to protecting the secrets of Merlin and Arthurian legend and instead expand their knowledge via cultural influence and trade, to know what other witches and wizards knew. The Greensong branch diverted on neutral terms with the Jorune tree, but still remains loyal to archiving their mother family's findings with the rest of their knowledge.</p>
-
-</section>
-
-<section>
-
-	<h3>Identity & Culture</h3>
-		
-		<ul>
-			<li><b>Overarching value:</b> Knowledge</li>
-		</ul>
-              
-    <h4>Core Values</h4>
-
-		<ul>
-			<li><b>Core Value #1 - Knowledge is Sacred:</b> Knowledge is meant to be preserved and passed onto each generation. The failure or refusal to take knowledge handed down to one's generation-- the failure to <b>learn</b>-- is considered a moral failing.</li> 
-			<li><b>Core Value #2 - Precision Over Passion:</b> Emotional outbursts and impulsivity are frowned upon; Greensongs conduct themselves via analysis, restraint, and research. Emotional reactions are considered a lapse in judgement.
-			</li>
-			<li><b>Core Value #3 - Lifelong Pursuit:</b> Education does not end with schooling; it is a Greensong's duty to continue to learn whenever possible. They should seek to master their skills and career paths, and should ultimately contribute at least one small offering to the fount of knowledge to be passed to the next generation.</li>
-		</ul>
-
-    <h4>Taboos</h4>
-
-		<ul>
-			<li><b>Taboo #1 - Willful Ignorance:</b> The refusal to learn or change one's opinion when given evidence that contradicts their position is considered willful ignorance. Not knowing something is forgiveable, but choosing not to know, or refusing to acknowledge evidence to keep an opinion, is not.</li>
-			<li><b>Taboo #2 - Falsifying Knowledge:</b> Knowledge is always to be written by an objective hand when meant to be disseminated to the public; falsifying records or rewriting documented history to favor personal bias is an unforgivable taboo.</li>
-			<li><b>Taboo #3 - Withholding Knowledge:</b> While secrecy may be necessary in certain career paths, withholding knowledge-- whether for leverage, spite, or dominance-- is unacceptable. Knowledge may be guarded, but never for personal ego.</li>
-		</ul>
-
-    <h4>Specialty Disciplines</h4>
- 		<ul>
-			<li>History of Magic</li>
-     		<li>Magical Law</li>
-			<li>Cartography and charting</li>
-		</ul>
-             
-</section>
-
-
-<section>
-	
-	<h3>Inter-Family Relations</h3>
-        	
-	<h4>Allies</h4>
-		<ul>
-    			<li><b>Jorune:</b> The Jorune family has since made peace with the Greensongs after their departure, and the two work closely together for the sake of knowledge.</li>
-		</ul>
-
-        <h4>Neutrals</h4>
-		<ul>
-    			<li><b>Ashvales:</b> Distant relatives; they still share knowledge with one another but find each others' core values to be "bizarre".</li>
-				<li><b>Mosses:</b> Distant relatives; they aren't enemies, but they don't hold each other in the highest of regards due to differing values.</li>
-		</ul>
-	
-
-        <h4>Enemies</h4>
-		<ul>
-			<!-- Enemies here -->
-		</ul>
-
-          </section>
+      <p>
+        Founded following migration into England. Greensong is defined by
+        archivism, musical theory, and a legendary private library rivaling
+        institutional collections.
+      </p>
     </div>
   </details>
+</section>
 
+	   
+	   <!-- NEW BLOODLINE -->
 
-<!-- FAMILY -->
-  <details class="family subfamily">
+<section class="bloodline">
+  <h2 class="bloodline-title">Pollachán Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
     <summary>
-      <span class="family-name">House X</span>
-      <span class="meta">Xblood · Branch of House X</span>
-      <span class="badge obscure">Obscure</span>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
     </summary>
-
     <div class="family-content">
- <section>
-
-	<h3>Geographic & Historic Origin</h3>
-		<ul>
-                	<li><b>Ancestral land:</b> X</li>
-                	<li><b>Current territory:</b> X</li>
-                	<li><b>Founder:</b> X</li>
-                	<li><b>Current head:</b> X</li>
-                </ul>
-	
-	<p>Lorem ipsum.</p>
-
-</section>
-
-<section>
-
-	<h3>Identity & Culture</h3>
-		
-		<ul>
-			<li><b>Overarching value:</b> X</li>
-		</ul>
-              
-    <h4>Core Values</h4>
-
-		<ul>
-			<li><b>Core Value #1 - X:</b> Lorem.</li>
-			<li><b>Core Value #2 - X:</b> Lorem.</li>
-			<li><b>Core Value #3 - X:</b> Lorem.</li>
-		</ul>
-
-    <h4>Taboos</h4>
-
-		<ul>
-			<li><b>Taboo #1 - X:</b> Lorem.</li>
-			<li><b>Taboo #2 - X:</b> Lorem.</li>
-			<li><b>Taboo #3 - X:</b> Lorem.</li>
-		</ul>
-
-    <h4>Specialty Disciplines</h4>
- 		<ul>
-			<li>One</li>
-     			<li>Two</li>
-			<li>Three</li>
-		</ul>
-             
-</section>
-
-
-<section>
-	
-	<h3>Inter-Family Relations</h3>
-        	
-	<h4>Allies</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-        <h4>Neutrals</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-        <h4>Enemies</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-          </section>
+      <p>
+       Lorem Ipsum
+      </p>
     </div>
   </details>
 
-
-<!-- FAMILY -->
-  <details class="family subfamily">
-    <summary>
-      <span class="family-name">House X</span>
-      <span class="meta">Xblood · Branch of House X</span>
-      <span class="badge obscure">Obscure</span>
+  <!-- BRANCH #1 -->
+  <details class="family tier-1">
+ <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
     </summary>
-
     <div class="family-content">
- <section>
-
-	<h3>Geographic & Historic Origin</h3>
-		<ul>
-                	<li><b>Ancestral land:</b> X</li>
-                	<li><b>Current territory:</b> X</li>
-                	<li><b>Founder:</b> X</li>
-                	<li><b>Current head:</b> X</li>
-                </ul>
-	
-	<p>Lorem ipsum.</p>
-
-</section>
-
-<section>
-
-	<h3>Identity & Culture</h3>
-		
-		<ul>
-			<li><b>Overarching value:</b> X</li>
-		</ul>
-              
-    <h4>Core Values</h4>
-
-		<ul>
-			<li><b>Core Value #1 - X:</b> Lorem.</li>
-			<li><b>Core Value #2 - X:</b> Lorem.</li>
-			<li><b>Core Value #3 - X:</b> Lorem.</li>
-		</ul>
-
-    <h4>Taboos</h4>
-
-		<ul>
-			<li><b>Taboo #1 - X:</b> Lorem.</li>
-			<li><b>Taboo #2 - X:</b> Lorem.</li>
-			<li><b>Taboo #3 - X:</b> Lorem.</li>
-		</ul>
-
-    <h4>Specialty Disciplines</h4>
- 		<ul>
-			<li>One</li>
-     			<li>Two</li>
-			<li>Three</li>
-		</ul>
-             
-</section>
-
-
-<section>
-	
-	<h3>Inter-Family Relations</h3>
-        	
-	<h4>Allies</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-        <h4>Neutrals</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-        <h4>Enemies</h4>
-		<ul>
-    			<li><b>X:</b> Lorem.</li>
-		</ul>
-
-          </section>
+      <p>
+       Lorem Ipsum
+      </p>
     </div>
   </details>
 
-</section>
+  <!-- BRANCH #2 -->
+  <details class="family tier-1">
+   <summary>
+      <span class="family-name">House NAME</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">NATIONALITY · Established Xth Century · Summary</span>
+    </summary>
+    <div class="family-content">
+      <p>
+       Lorem Ipsum
+      </p>
+    </div>
+  </details>
 
-<!-- PROGENITOR GROUP END -->
-
-      <!-- PROGENITOR GROUP START -->
-      <section class="progenitor-group">
-        <div class="progenitor-header">
-          <h2>Pollachán Bloodline</h2>
-        </div>
-
-        <!-- FAMILY -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Haylock</span>
-            <span class="meta">Halfblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Mulrooney  -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Mulrooney</span>
-            <span class="meta">Xblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Pollachán -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Pollachán</span>
-            <span class="meta">Halfblood · Progenitor</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-
-        <!-- Tanglebee -->
-        <details class="family subfamily">
-          <summary>
-            <span class="family-name">House Tanglebee</span>
-            <span class="meta">Xblood · Branch</span>
-            <span class="badge obscure">Obscure</span>
-          </summary>
-
-          <div class="family-content">
-            <section>
-              <h3>Geographic & Historic Origin</h3>
-              <ul>
-                <li><b>Ancestral land:</b> X</li>
-                <li><b>Current territory:</b> X</li>
-                <li><b>Founder:</b> X</li>
-                <li><b>Current head:</b> X</li>
-              </ul>
-
-              <p>Lorem ipsum.</p>
-            </section>
-
-            <section>
-              <h3>Identity & Culture</h3>
-
-              <ul>
-                <li><b>Overarching value:</b> X</li>
-              </ul>
-
-              <h4>Core Values</h4>
-
-              <ul>
-                <li><b>Core Value #1 - X:</b> Lorem.</li>
-                <li><b>Core Value #2 - X:</b> Lorem.</li>
-                <li><b>Core Value #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Taboos</h4>
-
-              <ul>
-                <li><b>Taboo #1 - X:</b> Lorem.</li>
-                <li><b>Taboo #2 - X:</b> Lorem.</li>
-                <li><b>Taboo #3 - X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Specialty Disciplines</h4>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3>Inter-Family Relations</h3>
-
-              <h4>Allies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Neutrals</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-
-              <h4>Enemies</h4>
-              <ul>
-                <li><b>X:</b> Lorem.</li>
-              </ul>
-            </section>
-          </div>
-        </details>
-      </section>
-
-      <!-- PROGENITOR GROUP END -->
-    </main>
+</section>	
+	   
+</main>
 
     <footer>
       <p>
         Fan-created content · Not affiliated with Warner Bros. or J.K. Rowling
       </p>
     </footer>
-  </body>
-</html>
+</body>
