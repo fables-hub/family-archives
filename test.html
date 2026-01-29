@@ -1,0 +1,278 @@
+<style>
+
+  @import url('https://fonts.cdnfonts.com/css/petter-jenne');
+      @import url('https://fonts.cdnfonts.com/css/plush-trial');
+
+      :root {
+        /* Base */
+        --bg: #0c0f14;        /* deep ink */
+        --panel: #161b22;     /* slate ledger */
+
+        /* Primary Accent */
+        --accent: #3e5c6f;    /* muted steel blue */
+
+        /* Text */
+        --text: #e2e6eb;      /* official parchment */
+        --muted: #9aa6b2;     /* registry gray */
+
+        /* Utility */
+        --seal: #6b8fa3;      /* Ministry stamp */
+        --border: #2a3440;    /* divider lines */
+      }
+
+
+      * {
+        box-sizing: border-box;
+      font-family: 'Plush-Trial', sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .archive-header {
+        text-align: center;
+        padding: 3rem 1rem;
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .archive-header p {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+/* -------------------------
+   BLOODLINE SECTION
+------------------------- */
+.bloodline {
+  margin-bottom: 4rem;
+}
+
+.bloodline-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* -------------------------
+   FAMILY ACCORDION
+------------------------- */
+.family {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.family summary {
+  cursor: pointer;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.family summary::-webkit-details-marker {
+  display: none;
+}
+
+.family-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex-basis: 100%;
+}
+
+.badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* -------------------------
+   CONTENT
+------------------------- */
+.family-content {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+/* -------------------------
+   TIERS
+------------------------- */
+.family.tier-0 {
+  margin-left: 0;
+}
+
+.family.tier-1 {
+  margin-left: 2.25rem;
+  position: relative;
+}
+
+.family.tier-1::before {
+  content: "";
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.family.tier-1 summary::before {
+  content: "↳";
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
+
+/* -------------------------
+   OPEN STATE
+------------------------- */
+.family[open] {
+  border-color: var(--accent);
+}
+
+.family[open] summary {
+  background: rgba(255,255,255,0.02);
+}
+
+/* -------------------------
+   UTILITY
+------------------------- */
+strong {
+  color: var(--accent);
+}
+  
+</style>
+
+<script>
+  /* --------------------------------
+   OPTIONAL: SINGLE-OPEN MODE
+   (only one family open at a time)
+-------------------------------- */
+document.querySelectorAll(".family").forEach(family => {
+  family.addEventListener("toggle", () => {
+    if (family.open) {
+      document.querySelectorAll(".family").forEach(other => {
+        if (other !== family) other.open = false;
+      });
+    }
+  });
+});
+</script>
+
+<body>
+  <link rel="stylesheet" href="style.css" />
+  
+  
+    <header class="archive-header">
+      <h1>Wizarding Family Archives</h1>
+      <blockquote>
+        <small
+          ><i
+            >Please note that anything in the red boxes is exposition, but not
+            known in-game unless discovered in-game during play or discussed
+            between players.</i
+          ></small
+        >
+      </blockquote>
+    </header>
+
+   <main>
+
+<!-- =========================
+     JORUNE BLOODLINE
+========================= -->
+<section class="bloodline">
+  <h2 class="bloodline-title">Jorune Bloodline</h2>
+
+  <!-- PROGENITOR -->
+  <details class="family tier-0">
+    <summary>
+      <span class="family-name">House Jorune</span>
+      <span class="badge">Progenitor</span>
+      <span class="meta">Welsh · Established 6th Century · Mythic Roots to Merlin</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        The original bloodline from which all later branches descend. House Jorune
+        claims direct spiritual and academic lineage to early Brythonic magic and
+        proto-wizard law. Considered foundational rather than politically dominant.
+      </p>
+    </div>
+  </details>
+
+  <!-- ASHVALE -->
+  <details class="family tier-1">
+    <summary>
+      <span class="family-name">House Ashvale</span>
+      <span class="badge">Branch</span>
+      <span class="meta">Welsh · Established 14th Century · Gothic Eccentrics</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        A culturally eccentric offshoot known for ritualized domestic magic,
+        funerary arts, and elaborate architecture. Harmless, insular, and deeply
+        traditional.
+      </p>
+    </div>
+  </details>
+
+  <!-- GREENSONG -->
+  <details class="family tier-1">
+    <summary>
+      <span class="family-name">House Greensong</span>
+      <span class="badge">Branch</span>
+      <span class="meta">English · Established 12th Century · Scholarly Aristocracy</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        Founded following migration into England. Greensong is defined by
+        archivism, musical theory, and a legendary private library rivaling
+        institutional collections.
+      </p>
+    </div>
+  </details>
+
+  <!-- MOSS -->
+  <details class="family tier-1">
+    <summary>
+      <span class="family-name">House Moss</span>
+      <span class="badge">Branch</span>
+      <span class="meta">English · Established 13th Century · Rural Preservationists</span>
+    </summary>
+    <div class="family-content">
+      <p>
+        A minor branch focused on land-magic, herbology, and stewardship of
+        ancient groves. Politically quiet, magically stable.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+</main>
+
+    <footer>
+      <p>
+        Fan-created content · Not affiliated with Warner Bros. or J.K. Rowling
+      </p>
+    </footer>
+</body>
